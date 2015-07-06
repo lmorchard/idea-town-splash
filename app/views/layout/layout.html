@@ -1,0 +1,11 @@
+doctype
+html
+  head
+    title #{ title }
+    meta(name="description" content= "yo" )
+    link(rel="stylesheet" href="vendor/normalize.css/normalize.css")
+    link(rel="stylesheet" href="styles/main.min.css")
+  body
+    include ../includes/nav
+    != content
+    include ../includes/footer

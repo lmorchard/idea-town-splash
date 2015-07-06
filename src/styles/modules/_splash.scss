@@ -1,0 +1,39 @@
+.splash-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.splash {
+  @include hidpi-background-image("lab-logo", 320px 320px);
+  animation: pop-in 250ms;
+  flex: 0 0 320px;
+  width: 320px;
+  margin: 0 auto;
+}
+
+.splash-header {
+  animation: pop-in 250ms;
+  color: #424F59;
+  font-weight: 700;
+  text-align: center;
+  font-size: 42px;
+  margin-top: 24px;
+}
+
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(.5);
+  }
+  90% {
+    opacity: .5;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
