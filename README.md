@@ -38,7 +38,7 @@ Just a couple of UX guys, up to no good:
 
 ## FAQ
 
-Q: Is the name idea town permanent?
+Q: Is the name Idea Town permanent?
 
 A: Probably not.
 
