@@ -20,6 +20,13 @@ gulp.task('selfie', function(){
     .pipe(jshint.reporter('default'));
 });
 
+// Lint the *.js files
+gulp.task('lint', function() {
+  return gulp.src(['*.js', 'app/**/*.js', 'src/scripts/**/*.js'])
+    .pipe(jshint('.jshintrc'))
+    .pipe(jshint.reporter('default'));
+});
+
 // Scripts
 gulp.task('scripts', function() {
   return gulp.src('src/scripts/**/*.js')
