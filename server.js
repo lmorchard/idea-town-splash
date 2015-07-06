@@ -14,7 +14,7 @@ server.views({
   path: './app/views'
 });
 
-// Routes 
+// Routes
 server.route(require('./app/routes'));
 
 // 404 Handling
@@ -39,4 +39,3 @@ server.register([
     console.log('Server running at:', server.info.uri);
   });
 });
-
