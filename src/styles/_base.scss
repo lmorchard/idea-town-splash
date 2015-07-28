@@ -6,8 +6,8 @@
 
 a {
   color: $url-blue;
-  text-decoration: underline;
   cursor: pointer;
+  text-decoration: underline;
 }
 
 .flex {
@@ -25,9 +25,9 @@ h6 {
 
 // nb add CDN for font
 body {
-  background-attachment: fixed;
   background: $background;
+  background-attachment: fixed;
   color: $dark;
-  font-family: "Fira Sans";
+  font-family: 'Fira Sans';
   font-size: 14px;
 }

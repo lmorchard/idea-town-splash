@@ -2,7 +2,6 @@ var gulp = require('gulp'),
     cache = require('gulp-cache'),
     concat = require('gulp-concat'),
     imagemin = require('gulp-imagemin'),
-    jade = require('gulp-jade'),
     jshint = require('gulp-jshint'),
     uglify = require('gulp-uglify'),
     autoprefixer = require('gulp-autoprefixer'),
@@ -10,7 +9,6 @@ var gulp = require('gulp'),
     minifycss = require('gulp-minify-css'),
     notify = require('gulp-notify'),
     rename = require('gulp-rename'),
-    replace = require('gulp-replace');
     sass = require('gulp-ruby-sass');
 var mainBowerFiles = require('main-bower-files');
 var runSequence = require('run-sequence');
@@ -70,11 +68,7 @@ gulp.task('bower', function() {
 
 gulp.task('bower:tabzilla', function() {
   return gulp.src('components/mozilla-tabzilla/media/**')
-    .pipe(gulp.dest('public/vendor/mozilla-tabzilla/css/media'))
-});
-
-gulp.task('static', function() {
-  gulp
+    .pipe(gulp.dest('public/vendor/mozilla-tabzilla/css/media'));
 });
 
 gulp.task('init', function() {

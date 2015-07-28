@@ -8,7 +8,7 @@
 
   @include respond-to('small') {
     padding: 20px 2%;
-    width: 100%
+    width: 100%;
   }
 
   @include respond-to('med-small') {
