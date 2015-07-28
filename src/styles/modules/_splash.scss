@@ -1,17 +1,20 @@
 .splash-logo {
   @include hidpi-background-image("splash-logo", 120px 120px);
   height: 120px;
-  margin: 0 auto 30px auto;
+  margin: 0 auto 30pxå;
   width: 120px; 
 }
 
 #splash-header {
-
+  color: #fff;
   max-width: 600px;
   text-align: center;
-  color: #fff;
 
   h1 {
+    font-weight: 600;
+    margin: 0 0 24px;
+    text-shadow: 0 1px 0 $dark;
+
     @include respond-to('small') {
       font-size: 9vw;
     }
@@ -19,12 +22,14 @@
     @include respond-to('med-small') {
       font-size: 42px;
     }
-    margin: 0 0 24px 0;
-    font-weight: 600;
-    text-shadow: 0 1px 0 $dark;
   }
 
   h2 {
+    font-weight: 300;
+    line-height: 32px;
+    margin: 0 0 32px;
+    text-shadow: 0 1px 0 $dark;
+
     @include respond-to('small') {
       font-size: 18px;
     }
@@ -36,19 +41,13 @@
     @include respond-to('med-large') {
       font-size: 20px;
     }
-
-
-    font-weight: 300;
-    line-height: 32px;
-    margin: 0 0 32px;
-    text-shadow: 0 1px 0 $dark;
   }
 
   input {
-    border: none;
+    border: 0;
     font-size: 18px;
     height: 40px;
-    padding: 6px 10px 4px 10px;
+    padding: 6px 10px 4px;
 
     &[type='text'] {
       border-radius: 0;
@@ -64,12 +63,12 @@
     }
 
     &[type='submit'] {
+      background: lighten($light, 5%);
       border-radius: 0;
-      background: lighten($light,5%);
       color: $background;
 
       @include respond-to('small') {
-        width: 100%
+        width: 100%;
       }
 
       @include respond-to('med-small') {
@@ -79,29 +78,29 @@
   }
 
   .parens {
-    margin: 32px 0 32px;
     font-weight: 300;
+    margin: 32px 0;
   }
 
   .splash-logo {
     @include hidpi-background-image("splash-logo", 120px 120px);
     height: 120px;
-    margin: 0 auto 30px auto;
+    margin: 0 auto 30px;
     width: 120px; 
   }
 
   .splash-email-submit {
     border-radius: 3px;
-    margin: 0 auto 12px auto;
-    overflow: hidden;
     box-shadow: 0 1px 0 $dark;
+    margin: 0 auto 12px;
+    overflow: hidden;
 
     @include respond-to('small') {
-      width: 100%
+      width: 100%;
     }
 
     @include respond-to('med-small') {
-      width: 440px
+      width: 440px;
     }
   }
 }
@@ -112,7 +111,7 @@
     background: $dark;
     border-radius: 50%;
     height: 150px;
-    margin: 14px auto 24px auto;
+    margin: 14px auto 24px;
     width: 150px;
   }
 
