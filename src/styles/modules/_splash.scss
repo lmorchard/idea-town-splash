@@ -1,39 +1,131 @@
-.splash-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 100vh;
-  overflow: hidden;
+.splash-logo {
+  @include hidpi-background-image("splash-logo", 120px 120px);
+  height: 120px;
+  margin: 0 auto 30px auto;
+  width: 120px; 
 }
 
-.splash {
-  @include hidpi-background-image("lab-logo", 320px 320px);
-  animation: pop-in 250ms;
-  flex: 0 0 320px;
-  width: 320px;
-  margin: 0 auto;
-}
+#splash-header {
 
-.splash-header {
-  animation: pop-in 250ms;
-  color: #424F59;
-  font-weight: 700;
+  max-width: 600px;
   text-align: center;
-  font-size: 42px;
-  margin-top: 24px;
+  color: #fff;
+
+  h1 {
+    @include respond-to('small') {
+      font-size: 9vw;
+    }
+
+    @include respond-to('med-small') {
+      font-size: 42px;
+    }
+    margin: 0 0 24px 0;
+    font-weight: 600;
+    text-shadow: 0 1px 0 $dark;
+  }
+
+  h2 {
+    @include respond-to('small') {
+      font-size: 18px;
+    }
+
+    @include respond-to('med-small') {
+      font-size: 18px;
+    }
+
+    @include respond-to('med-large') {
+      font-size: 20px;
+    }
+
+
+    font-weight: 300;
+    line-height: 32px;
+    margin: 0 0 32px;
+    text-shadow: 0 1px 0 $dark;
+  }
+
+  input {
+    border: none;
+    font-size: 18px;
+    height: 40px;
+    padding: 6px 10px 4px 10px;
+
+    &[type='text'] {
+      border-radius: 0;
+      color: $dark;
+
+      @include respond-to('small') {
+        width: 100%;
+      }
+
+      @include respond-to('med-small') {
+        width: 338px;
+      }
+    }
+
+    &[type='submit'] {
+      border-radius: 0;
+      background: lighten($light,5%);
+      color: $background;
+
+      @include respond-to('small') {
+        width: 100%
+      }
+
+      @include respond-to('med-small') {
+        width: 100px;
+      }
+    }
+  }
+
+  .parens {
+    margin: 32px 0 32px;
+    font-weight: 300;
+  }
+
+  .splash-logo {
+    @include hidpi-background-image("splash-logo", 120px 120px);
+    height: 120px;
+    margin: 0 auto 30px auto;
+    width: 120px; 
+  }
+
+  .splash-email-submit {
+    border-radius: 3px;
+    margin: 0 auto 12px auto;
+    overflow: hidden;
+    box-shadow: 0 1px 0 $dark;
+
+    @include respond-to('small') {
+      width: 100%
+    }
+
+    @include respond-to('med-small') {
+      width: 440px
+    }
+  }
 }
 
-@keyframes pop-in {
-  0% {
-    opacity: 0;
-    transform: scale(.5);
+#splash-content {
+
+  .splash-image {
+    background: $dark;
+    border-radius: 50%;
+    height: 150px;
+    margin: 14px auto 24px auto;
+    width: 150px;
   }
-  90% {
-    opacity: .5;
-    transform: scale(1.05);
+
+  .splash-title {
+    color: $dark;
+    font-size: 20px;
+    text-align: center;
   }
-  100% {
-    opacity: 1;
-    transform: scale(1);
+
+  .splash-copy-point {
+    color: $dark;
+    margin: 0 auto;
+    max-width: 320px;
+    text-align: center;
   }
 }

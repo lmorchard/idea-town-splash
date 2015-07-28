@@ -1,37 +1,7 @@
 @import 'variables';
 @import 'mixins';
+@import 'base';
+@import 'layout';
+@import 'theme';
 @import 'modules/modules';
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
 
-a {
-  color: $url-blue;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.flex {
-  display: flex;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 200;
-  margin-top: 0;
-}
-
-// nb add CDN for font
-body {
-  background: #f2f2f2;
-  background-attachment: fixed;
-  color: $text-dark;
-  font-family: "Fira Sans";
-  font-size: 14px;
-}

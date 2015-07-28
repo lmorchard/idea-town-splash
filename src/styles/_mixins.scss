@@ -1,6 +1,8 @@
 $breakpoints: (
   small: ('max-width: 520px'),
-  big: ('min-width: 521px')
+  med-small: ('min-width: 521px'),
+  med-large: ('min-width: 768px'),
+  large: ('min-width: 1060px')
 );
 
 @mixin respond-to($breakpoint) {
@@ -33,4 +35,12 @@ $breakpoints: (
   display: flex;
   width: 768px;
   margin: 0 auto;
+}
+
+@mixin clear-fix() {
+  &:after {
+  clear: both;
+  content: "";
+  display: table;
+  }
 }

@@ -2,6 +2,7 @@ var gulp = require('gulp'),
     cache = require('gulp-cache'),
     concat = require('gulp-concat'),
     imagemin = require('gulp-imagemin'),
+    jade = require('gulp-jade'),
     jshint = require('gulp-jshint'),
     uglify = require('gulp-uglify'),
     autoprefixer = require('gulp-autoprefixer'),
@@ -9,6 +10,7 @@ var gulp = require('gulp'),
     minifycss = require('gulp-minify-css'),
     notify = require('gulp-notify'),
     rename = require('gulp-rename'),
+    replace = require('gulp-replace');
     sass = require('gulp-ruby-sass');
 var mainBowerFiles = require('main-bower-files');
 var runSequence = require('run-sequence');
@@ -66,12 +68,22 @@ gulp.task('bower', function() {
     .pipe(notify({ message: 'Vendor libs ready' }));
 });
 
+gulp.task('bower:tabzilla', function() {
+  return gulp.src('components/mozilla-tabzilla/media/**')
+    .pipe(gulp.dest('public/vendor/mozilla-tabzilla/css/media'))
+});
+
+gulp.task('static', function() {
+  gulp
+});
+
 gulp.task('init', function() {
   runSequence(
     'scripts',
     'styles',
     'images',
     'bower',
+    'bower:tabzilla',
     function(error) {
       if (error) {
         console.log('shit\'s broke son: ' + error.message);
@@ -86,9 +98,8 @@ gulp.task('default', function() {
   gulp.watch('public/images/**/*', ['images']);
   gulp.watch('public/scripts/**/*', ['styles']);
   gulp.watch('gulpfile.js',['selfie']);
+  gulp.watch(['public/**','app/views/**']).on('change', livereload.changed);
 
   livereload({ start: true });
   livereload.listen();
-
-  gulp.watch(['public/**','app/views/**']).on('change', livereload.changed);
 });

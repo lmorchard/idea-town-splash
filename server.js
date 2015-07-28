@@ -1,6 +1,6 @@
 var Hapi = require('hapi');
 var server = new Hapi.Server();
-server.connection({ port: 3000 });
+server.connection({ port: 3001 });
 
 // Views
 server.views({
@@ -16,16 +16,6 @@ server.views({
 
 // Routes
 server.route(require('./app/routes'));
-
-// 404 Handling
-server.ext('onPreResponse', function (request, reply) {
-
-  if (request.response.isBoom) {
-    return reply.view('splash', require('./data/pages/404.js'));
-  }
-
-  return reply.continue();
-});
 
 //Plugins
 server.register([

@@ -1,5 +1,14 @@
+$url-blue: #faf;
+
 $white: #ffffff;
 $black: #000000;
-$url-blue: #0394dd;
-$text-dark: #424f59;
-$text-light: #8a9ba8;
+
+$dark: #329DCC;
+$medium: #6CCDEA;
+$darker: darken($medium, 5%);
+$darkest: darken($dark, 5%);
+$light: #70cde8;
+$background: #f2f2f2;
+
+$small-radius: 3px;
+

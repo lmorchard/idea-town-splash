@@ -1,0 +1,22 @@
+#footer {
+  padding-top: 100px;
+  @include clear-fix();
+
+  .moz-logo {
+    @include hidpi-background-image("mozilla", 77px 20px);
+    width: 77px;
+    height: 20px;
+    display: block;
+    float: left;
+  }
+
+  .privacy,
+  .contribute {
+    color: $white;
+    float: right;
+    text-decoration: none;
+    position: relative;
+    top: 4px;
+    padding: 0 5px;
+  }
+}

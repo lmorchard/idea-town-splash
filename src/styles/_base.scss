@@ -1,0 +1,33 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+a {
+  color: $url-blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.flex {
+  display: flex;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+}
+
+// nb add CDN for font
+body {
+  background-attachment: fixed;
+  background: $background;
+  color: $dark;
+  font-family: "Fira Sans";
+  font-size: 14px;
+}
