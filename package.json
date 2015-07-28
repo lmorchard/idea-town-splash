@@ -4,6 +4,8 @@
   "description": "Ideas come to town",
   "main": "server.js",
   "scripts": {
+    "postinstall": "bower update",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "jgruen@mozilla.com",
@@ -22,11 +24,13 @@
     "gulp-cache": "^0.2.10",
     "gulp-concat": "^2.6.0",
     "gulp-imagemin": "^2.3.0",
+    "gulp-jade": "^1.0.1",
     "gulp-jshint": "^1.11.0",
     "gulp-livereload": "^3.8.0",
     "gulp-minify-css": "^1.1.6",
     "gulp-notify": "^2.2.0",
     "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.3",
     "gulp-ruby-sass": "^1.0.5",
     "gulp-uglify": "^1.2.0",
     "jshint": "^2.8.0",
@@ -35,14 +39,8 @@
   },
   "homepage": "https://github.com/mozilla/idea-town#readme",
   "license": "MPL-2.0",
-  "main": "server.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mozilla/idea-town.git"
-  },
-  "scripts": {
-    "postinstall": "bower update",
-    "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

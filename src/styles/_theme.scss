@@ -1,0 +1,37 @@
+#tabzilla:before {
+  background: $medium;
+}
+
+#tabzilla {
+  @include respond-to('small') {
+    display: none;
+  }
+}
+
+.dark {
+  background: $dark;
+}
+
+.medium {
+  background: $medium;
+}
+
+.light {
+  background: $light;
+}
+
+.white {
+  background: $white;
+}
+
+.fancy-medium {
+  background-image: repeating-linear-gradient(118deg, $darker 0px, $medium 250px, $darker 250px, $medium 800px, $darker 800px, $medium 950px);
+  background-position: center top;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+.fancy-dark {
+  background-image: repeating-linear-gradient(118deg, $dark 0px, $darkest 250px, $dark 250px, $darkest 800px, $dark 800px, $darkest 950px);
+  background-position: center top;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+}

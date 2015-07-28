@@ -1,7 +1,4 @@
 .sass-cache
 components
 node_modules
-public/images
-public/scripts
-public/styles
-public/vendor
+public
