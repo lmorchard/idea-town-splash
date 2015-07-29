@@ -51,13 +51,13 @@
     transition: background 100ms;
 
     &[type='text'] {
-      border-radius: 0;
       background: $background;
+      border-radius: 0;
       color: $dark;
 
       @include respond-to('small') {
-        width: 100%;
         text-align: center;
+        width: 100%;
       }
 
       @include respond-to('med-small') {
@@ -76,6 +76,13 @@
       color: $white;
       text-align: center;
 
+      @include respond-to('small') {
+        width: 100%;
+      }
+
+      @include respond-to('med-small') {
+        width: 100px;
+      }
 
       &:hover,
       &:focus {
@@ -84,14 +91,6 @@
 
       &:active {
         background: darken($cta, 5%);
-      }
-
-      @include respond-to('small') {
-        width: 100%;
-      }
-
-      @include respond-to('med-small') {
-        width: 100px;
       }
     }
   }

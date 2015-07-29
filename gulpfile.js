@@ -76,7 +76,7 @@ gulp.task('bower:tabzilla', function() {
 gulp.task('static-splash', function() {
   return gulp.src('app/views/index.html')
     .pipe(data(function(){
-      return require('./app/data/pages/index.js')
+      return require('./app/data/pages/index.js');
     }))
     .pipe(jade())
     .pipe(gulp.dest('public'));
