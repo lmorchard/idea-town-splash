@@ -1,7 +1,9 @@
 var gulp = require('gulp'),
     cache = require('gulp-cache'),
     concat = require('gulp-concat'),
+    data = require('gulp-data'),
     imagemin = require('gulp-imagemin'),
+    jade = require('gulp-jade'),
     jshint = require('gulp-jshint'),
     uglify = require('gulp-uglify'),
     autoprefixer = require('gulp-autoprefixer'),
@@ -71,6 +73,16 @@ gulp.task('bower:tabzilla', function() {
     .pipe(gulp.dest('public/vendor/mozilla-tabzilla/css/media'));
 });
 
+gulp.task('static-splash', function() {
+  return gulp.src('app/views/index.html')
+    .pipe(data(function(){
+      return require('./app/data/pages/index.js')
+    }))
+    .pipe(jade())
+    .pipe(gulp.dest('public'));
+
+});
+
 gulp.task('init', function() {
   runSequence(
     'scripts',
@@ -89,8 +101,8 @@ gulp.task('init', function() {
 gulp.task('default', function() {
 
   gulp.watch('src/styles/**/*', ['styles']);
-  gulp.watch('public/images/**/*', ['images']);
-  gulp.watch('public/scripts/**/*', ['styles']);
+  gulp.watch('src/images/**/*', ['images']);
+  gulp.watch('src/scripts/**/*', ['scripts']);
   gulp.watch('gulpfile.js',['selfie']);
   gulp.watch(['public/**','app/views/**']).on('change', livereload.changed);
 

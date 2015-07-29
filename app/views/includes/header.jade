@@ -2,7 +2,8 @@ doctype HTML
 html
   head
     title #{ title }
-    meta(name="description" content= "yo" )
+    meta(name="description" content= "#{ desc }" )
+    meta(name="keywords" content= "#{ keys }" )
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1")
     link(rel="stylesheet" href="//code.cdn.mozilla.net/fonts/fira.css")
@@ -10,5 +11,3 @@ html
     link(rel="stylesheet" href="vendor/mozilla-tabzilla/css/tabzilla.css")
     link(rel="stylesheet" href="styles/main.min.css")
   body
-    // include ../includes/nav
-    != content
