@@ -3,10 +3,12 @@ module.exports = [
     method: 'GET',
     path: '/',
     handler: function(request, reply) {
-      reply.view('home', require('./data/pages/home.js'));
+      var d = require('./data/pages/index.js');
+      console.log(d);
+      reply.view('index', require('./data/pages/index.js'));
     },
     config: {
-      id: 'home'
+      id: 'index'
     }
   },
   // Public

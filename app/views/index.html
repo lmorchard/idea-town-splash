@@ -1,0 +1,27 @@
+include includes/header
+
+.full.fancy-medium
+  include includes/tabzilla
+  #splash-header.wrapper
+    header
+      .splash-logo
+      h1.splash-title #{ mainHeader }
+      h2.splash-desc #{ subHeader }
+      // p.parens #{parens}
+    form.splash-email-submit
+      input(type='text' placeholder='what\'s your email?')
+      input(type='submit' value='Sign up')
+    // .error invalid email address...try again
+    // include includes/mailchimp
+
+.full
+  #splash-content.wrapper
+    .row
+      each splash in splashes
+        .third
+          .splash-image
+          h3.splash-title #{ splash.title }
+          p.splash-copy-point #{ splash.desc }
+      
+
+include includes/footer

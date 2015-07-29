@@ -5,12 +5,10 @@ server.connection({ port: 3001 });
 // Views
 server.views({
   engines: {
-      html: require('jade'),
+    html: require('jade'),
   },
   isCached: 'false',
   context: require('./app/data/default_context'),
-  layout: 'layout',
-  layoutPath: './app/views/layout',
   path: './app/views'
 });
 

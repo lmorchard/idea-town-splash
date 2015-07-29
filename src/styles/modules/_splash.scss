@@ -48,24 +48,33 @@
     font-size: 18px;
     height: 40px;
     padding: 6px 10px 4px;
+    transition: background 100ms;
 
     &[type='text'] {
+      background: $background;
       border-radius: 0;
       color: $dark;
 
       @include respond-to('small') {
+        text-align: center;
         width: 100%;
       }
 
       @include respond-to('med-small') {
         width: 338px;
       }
+
+      &:focus {
+        background: $white;
+      }
+
     }
 
     &[type='submit'] {
-      background: lighten($light, 5%);
+      background: $cta;
       border-radius: 0;
-      color: $background;
+      color: $white;
+      text-align: center;
 
       @include respond-to('small') {
         width: 100%;
@@ -73,6 +82,15 @@
 
       @include respond-to('med-small') {
         width: 100px;
+      }
+
+      &:hover,
+      &:focus {
+        background: darken($cta, 1%);
+      }
+
+      &:active {
+        background: darken($cta, 5%);
       }
     }
   }
