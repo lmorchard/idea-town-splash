@@ -4,6 +4,8 @@
   "description": "Ideas come to town",
   "main": "server.js",
   "scripts": {
+    "build": "gulp init",
+    "lint": "gulp lint",
     "postinstall": "bower update",
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,6 +21,7 @@
     "jade": "^1.11.0"
   },
   "devDependencies": {
+    "bower": "1.4.1",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.3.1",
     "gulp-cache": "^0.2.10",
@@ -32,7 +35,7 @@
     "gulp-notify": "^2.2.0",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.3",
-    "gulp-ruby-sass": "^1.0.5",
+    "gulp-sass": "2.0.4",
     "gulp-uglify": "^1.2.0",
     "jshint": "^2.8.0",
     "main-bower-files": "^2.8.1",

@@ -11,7 +11,8 @@ var gulp = require('gulp'),
     minifycss = require('gulp-minify-css'),
     notify = require('gulp-notify'),
     rename = require('gulp-rename'),
-    sass = require('gulp-ruby-sass');
+    sass = require('gulp-sass');
+
 var mainBowerFiles = require('main-bower-files');
 var runSequence = require('run-sequence');
 
@@ -43,8 +44,9 @@ gulp.task('scripts', function() {
 });
 
 // Styles
-gulp.task('styles', function() {
-  return sass('src/styles/main.scss', { style: 'expanded' })
+gulp.task('styles', function () {
+  return gulp.src('src/styles/main.scss')
+    .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer('last 2 version'))
     .pipe(gulp.dest('public/styles'))
     .pipe(rename({ suffix: '.min' }))
