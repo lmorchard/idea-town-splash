@@ -1,6 +1,6 @@
 # Idea Town
 
-![Image Alt](https://github.com/mozilla/idea-town/blob/master/src/images/lab-logo.png)
+![Idea Town](https://raw.githubusercontent.com/mozilla/idea-town/master/src/images/splash-logo%402x.png)
 
 ## What is Idea Town?
 
