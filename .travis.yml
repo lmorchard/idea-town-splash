@@ -13,3 +13,7 @@ before_install:
 script:
   - npm run lint
   - npm run build
+
+env:
+  global:
+    - DISABLE_NOTIFIER=true
