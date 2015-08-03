@@ -20,23 +20,31 @@ Idea Town is not intended to replace the trains for the vast majority of feature
 
 This repo is currently intended to serve as UI/UX skeleton for Idea Town.
 
+Basically a clone of [eb-node-express-signup](https://github.com/awslabs/eb-node-express-signup) so we can get movin fast.
+
 ## Installation
 
 ```
 npm install
-bower install
 gulp init
 gulp //sets watches
 npm start // better yet: nodemon server.js
 ```
 
-point your browser to localhost:3000
+Don't forget to set your AWS creds in `app_config.json`
+
+point your browser to localhost:3001
+
+## Deploy
+You will need to run `npm run bundle` to create the zip and upload it through the
+elastic beanstalk dashboard.
 
 ## Who is responsible for this?
 
 Just a couple of UX guys, up to no good:
 - jgruen@mozilla.com
 - bbell@mozilla.com
+- djustice@mozilla.com
 
 ## FAQ
 

@@ -1,0 +1,7 @@
+{
+  "AWS_REGION": "us-west-2",
+  "STARTUP_SIGNUP_TABLE": "idea-town-signups",
+  "NEW_SIGNUP_TOPIC": "arn:aws:sns:us-west-2:927034868273:idea-town-signup-topic",
+  "accessKeyId": "ACCESS_KEY_ID",
+  "secretAccessKey": "SECRET_ACCESS_KEY"
+}
