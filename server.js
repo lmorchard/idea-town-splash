@@ -12,6 +12,10 @@
 
 //Get modules.
 var express = require('express');
+var serveStatic = require('serve-static');
+var morgan = require('morgan');
+var Busboy = require('busboy');
+
 var routes = require('./routes');
 var http = require('http');
 var path = require('path');
@@ -22,15 +26,9 @@ var app = express();
 app.set('port', process.env.PORT || 3001);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(express.bodyParser());
-app.use(express.methodOverride());
-app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));
-app.use('/media', express.static(path.join(__dirname, 'public/vendor/mozilla-tabzilla/media')));
-
-app.locals.theme = process.env.THEME; //Make the THEME environment variable available to the app.
+app.use(morgan('combined'));
+app.use(serveStatic(path.join(__dirname, 'public')));
+app.use('/media', serveStatic(path.join(__dirname, 'public/vendor/mozilla-tabzilla/media')));
 
 //Read config values from a JSON file.
 var config = fs.readFileSync('./app_config.json', 'utf8');
@@ -40,17 +38,26 @@ AWS.config.update(config);
 //Create DynamoDB client and pass in region.
 var db = new AWS.DynamoDB({region: config.AWS_REGION});
 
-//GET home page.
 app.get('/', routes.index);
 
-//POST signup form.
 app.post('/signup', function(req, res) {
-  var emailField = req.body.email;
-  res.send(200);
-  signup(emailField);
+  try {
+    var busboy = new Busboy({headers: req.headers});
+    busboy.on('field', function(fieldname, val) {
+      if (fieldname === 'email') {
+        signup(val);
+      }
+    });
+    busboy.on('finish', function() {
+      res.sendStatus(200);
+    });
+    req.pipe(busboy);
+  }
+  catch (err) {
+    res.sendStatus(500);
+  }
 });
 
-//Add signup form data to database.
 function signup(emailSubmitted) {
   var formData = {
     TableName: config.STARTUP_SIGNUP_TABLE,
