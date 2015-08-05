@@ -8,8 +8,8 @@
     "build": "gulp init",
     "lint": "gulp lint",
     "start": "node server.js",
-    "bundle": "zip -r ../bundle.js ./* ./.*",
-    "postinstall": "echo \"don't forget to set AWS Credentials in app_config.json\" ",
+    "bundle": "zip -r ../bundle.zip ./* ./.*",
+    "postinstall": "echo \"don't forget to set AWS Credentials in .ebextensions/environment.config\" ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Mozilla (https://mozilla.org/)",
@@ -24,7 +24,8 @@
     "morgan": "^1.6.1",
     "mozilla-tabzilla": "mozilla/tabzilla#v0.3.0",
     "normalize.css": "^3.0.3",
-    "serve-static": "^1.10.0"
+    "serve-static": "^1.10.0",
+    "xtend": "^4.0.0"
   },
   "devDependencies": {
     "gulp": "^3.9.0",
@@ -43,7 +44,8 @@
     "gulp-replace": "^0.5.3",
     "gulp-sass": "^2.0.4",
     "gulp-uglify": "^1.2.0",
-    "run-sequence": "^1.1.1"
+    "run-sequence": "^1.1.1",
+    "vinyl-fs": "^1.0.0"
   },
   "homepage": "https://github.com/mozilla/idea-town#readme",
   "license": "MPL-2.0",

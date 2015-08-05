@@ -19,8 +19,8 @@ var Busboy = require('busboy');
 var routes = require('./routes');
 var http = require('http');
 var path = require('path');
-var fs = require('fs');
 var AWS = require('aws-sdk');
+var xtend = require('xtend');
 var app = express();
 
 app.set('port', process.env.PORT || 3001);
@@ -30,9 +30,11 @@ app.use(morgan('combined'));
 app.use(serveStatic(path.join(__dirname, 'public')));
 app.use('/media', serveStatic(path.join(__dirname, 'public/vendor/mozilla-tabzilla/media')));
 
-//Read config values from a JSON file.
-var config = fs.readFileSync('./app_config.json', 'utf8');
-config = JSON.parse(config);
+var config = xtend(require('./app_config.json'), {
+  'accessKeyId': process.env.ACCESS_KEY_ID,
+  'secretAccessKey': process.env.SECRET_ACCESS_KEY
+});
+
 AWS.config.update(config);
 
 //Create DynamoDB client and pass in region.
