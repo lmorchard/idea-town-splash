@@ -15,6 +15,7 @@ var express = require('express');
 var serveStatic = require('serve-static');
 var morgan = require('morgan');
 var Busboy = require('busboy');
+var helmet = require('helmet');
 
 var routes = require('./routes');
 var http = require('http');
@@ -26,6 +27,7 @@ var app = express();
 app.set('port', process.env.PORT || 3001);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+app.use(helmet());
 app.use(morgan('combined'));
 app.use(serveStatic(path.join(__dirname, 'public')));
 app.use('/media', serveStatic(path.join(__dirname, 'public/vendor/mozilla-tabzilla/media')));
