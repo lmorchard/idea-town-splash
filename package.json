@@ -1,27 +1,29 @@
 {
   "name": "idea-town",
   "version": "0.0.1",
+  "private": true,
   "description": "Ideas come to town",
   "main": "server.js",
   "scripts": {
     "build": "gulp init",
     "lint": "gulp lint",
-    "postinstall": "bower update",
     "start": "node server.js",
+    "bundle": "zip -r ../bundle.js ./* ./.*",
+    "postinstall": "echo \"don't forget to set AWS Credentials in app_config.json\" ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "jgruen@mozilla.com",
+  "author": "Mozilla (https://mozilla.org/)",
   "bugs": {
     "url": "https://github.com/mozilla/idea-town/issues"
   },
   "dependencies": {
-    "handlebars": "^3.0.3",
-    "hapi": "^8.6.1",
-    "hapi-named-routes": "^0.3.0",
-    "jade": "^1.11.0"
+    "aws-sdk": "*",
+    "express": "3.4.0",
+    "jade": "^1.11.0",
+    "mozilla-tabzilla": "mozilla/tabzilla#v0.3.0",
+    "normalize.css": "^3.0.3"
   },
   "devDependencies": {
-    "bower": "1.4.1",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.3.1",
     "gulp-cache": "^0.2.10",
@@ -38,7 +40,6 @@
     "gulp-sass": "2.0.4",
     "gulp-uglify": "^1.2.0",
     "jshint": "^2.8.0",
-    "main-bower-files": "^2.8.1",
     "run-sequence": "^1.1.1"
   },
   "homepage": "https://github.com/mozilla/idea-town#readme",

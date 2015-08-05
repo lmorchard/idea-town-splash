@@ -13,7 +13,6 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     sass = require('gulp-sass');
 
-var mainBowerFiles = require('main-bower-files');
 var runSequence = require('run-sequence');
 
 // Lint the gulpfile
@@ -25,9 +24,10 @@ gulp.task('selfie', function(){
 
 // Lint the *.js files
 gulp.task('lint', function() {
-  return gulp.src(['*.js', 'app/**/*.js', 'src/scripts/**/*.js'])
+  return gulp.src(['*.js', 'routes/*.js', 'src/scripts/**/*.js'])
     .pipe(jshint('.jshintrc'))
-    .pipe(jshint.reporter('default'));
+    .pipe(jshint.reporter('default'))
+    .pipe(jshint.reporter('fail'));
 });
 
 // Scripts
@@ -63,26 +63,28 @@ gulp.task('images', function() {
     .pipe(notify({ message: 'Images task complete' }));
 });
 
-// Gets Bowered things move them to public/vendor
-gulp.task('bower', function() {
-  return gulp.src(mainBowerFiles(), { base: 'components' })
-    .pipe(gulp.dest('public/vendor'))
-    .pipe(notify({ message: 'Vendor libs ready' }));
+gulp.task('npm:tabzilla:img', function() {
+  return gulp.src('node_modules/mozilla-tabzilla/media/**')
+    .pipe(gulp.dest('public/vendor/mozilla-tabzilla/media'));
 });
 
-gulp.task('bower:tabzilla', function() {
-  return gulp.src('components/mozilla-tabzilla/media/**')
-    .pipe(gulp.dest('public/vendor/mozilla-tabzilla/css/media'));
+gulp.task('npm:tabzilla:css', function() {
+  return gulp.src('node_modules/mozilla-tabzilla/css/**')
+    .pipe(gulp.dest('public/vendor/mozilla-tabzilla/css'));
+});
+
+gulp.task('npm:normalize', function() {
+  return gulp.src('node_modules/normalize.css/normalize.css')
+         .pipe(gulp.dest('public/vendor/normalize.css'));
 });
 
 gulp.task('static-splash', function() {
-  return gulp.src('app/views/index.html')
+  return gulp.src('views/index.jade')
     .pipe(data(function(){
-      return require('./app/data/pages/index.js');
+      return require('./routes/data.json');
     }))
     .pipe(jade())
     .pipe(gulp.dest('public'));
-
 });
 
 gulp.task('init', function() {
@@ -90,8 +92,9 @@ gulp.task('init', function() {
     'scripts',
     'styles',
     'images',
-    'bower',
-    'bower:tabzilla',
+    'npm:normalize',
+    'npm:tabzilla:img',
+    'npm:tabzilla:css',
     function(error) {
       if (error) {
         console.log('shit\'s broke son: ' + error.message);
@@ -101,12 +104,11 @@ gulp.task('init', function() {
 
 // Watches the things
 gulp.task('default', function() {
-
   gulp.watch('src/styles/**/*', ['styles']);
   gulp.watch('src/images/**/*', ['images']);
   gulp.watch('src/scripts/**/*', ['scripts']);
   gulp.watch('gulpfile.js',['selfie']);
-  gulp.watch(['public/**','app/views/**']).on('change', livereload.changed);
+  gulp.watch(['public/**','views/**']).on('change', livereload.changed);
 
   livereload({ start: true });
   livereload.listen();
