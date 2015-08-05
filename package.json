@@ -17,11 +17,14 @@
     "url": "https://github.com/mozilla/idea-town/issues"
   },
   "dependencies": {
-    "aws-sdk": "*",
-    "express": "3.4.0",
+    "aws-sdk": "^2.1.43",
+    "busboy": "^0.2.9",
+    "express": "^4.13.3",
     "jade": "^1.11.0",
+    "morgan": "^1.6.1",
     "mozilla-tabzilla": "mozilla/tabzilla#v0.3.0",
-    "normalize.css": "^3.0.3"
+    "normalize.css": "^3.0.3",
+    "serve-static": "^1.10.0"
   },
   "devDependencies": {
     "gulp": "^3.9.0",
