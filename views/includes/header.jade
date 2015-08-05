@@ -2,9 +2,12 @@ head
   meta(charset="utf-8")
   meta(name="description" content="#{ desc }")
   meta(name="keywords" content="#{ keys }")
-  meta(name="viewport" content="width=device-width, initial-scale=1")
-  title= title
+  meta(name="viewport" content="width=device-width initial-scale=1")
+  meta(name="defaultLanguage" content="en-US")
+  meta(name="availableLanguages" content="de,en-US,fr,pl")
+  link(rel="localization" href="locales/{locale}.l20n")
   link(rel="stylesheet" href="//code.cdn.mozilla.net/fonts/fira.css")
   link(rel="stylesheet" href="vendor/normalize.css/normalize.css")
   link(rel="stylesheet" href="vendor/mozilla-tabzilla/css/tabzilla.css")
   link(rel="stylesheet" href="styles/main.min.css")
+  title= title

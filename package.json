@@ -20,6 +20,7 @@
     "aws-sdk": "*",
     "express": "3.4.0",
     "jade": "^1.11.0",
+    "l20n": "3.0.1",
     "mozilla-tabzilla": "mozilla/tabzilla#v0.3.0",
     "normalize.css": "^3.0.3"
   },
