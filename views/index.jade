@@ -1,41 +1,29 @@
 extends layout
 
 block content
-  .full.fancy-medium
+  #logo-header.full.medium
+    .logo-stripe.full.fancy-clear
       include includes/tabzilla
+      .splash-logo
 
-      #splash-header.wrapper
-        header
-          .splash-logo
-          h1.splash-title= mainHeader
-          h2.splash-desc= subHeader
-          // p.parens #{parens}
-        form(id="signupForm", role="form", class="splash-email-submit")
-          input(type="email" id="email", name="email", placeholder="what's your email?")
-          input(type="submit" id="signup" value="Sign up")
-        // .error invalid email address...try again
-        // include includes/mailchimp
+  #splash-cta-container.full.light
+    #splash-cta.wrapper
+      header
+        h1.splash-title= mainHeader
+        h2.splash-desc= subHeader
+      form(id="signupForm", role="form", class="splash-email-submit" novalidate="")
+        .success.email-submitted.hidden= mailResponses.success
+        .error.invalid-email.hidden= mailResponses.invalid
+        .error.server-error.hidden= mailResponses.serverError
+        input(type="email" id="email", name="email", placeholder="#{form.inputPlaceholder}" tabindex="1")
+        input(type="submit" id="signup" value="#{form.submitValue}")
+        .disclaimer!= disclaimer
 
-    .full
-      #splash-content.wrapper
-        .row
-          each splash in splashes
-            .third
-              .splash-image
-              h3.splash-title= splash.title
-              p.splash-copy-point= splash.desc
-    script.
-        document.querySelector('#signup').addEventListener('click', function(ev) {
-          ev.preventDefault();
-          var data = new FormData();
-          var emailVal = document.querySelector('#email').value;
-          data.append('email', emailVal);
-
-          var xhr = new XMLHttpRequest();
-          xhr.open('POST', '/signup', true);
-          xhr.onload = function () {
-          // do something to response
-            console.log(this.responseText);
-          };
-          xhr.send(data);
-        })
+  .full
+    #splash-content.wrapper
+      .row
+        each splash in splashes
+          .third
+            .splash-image
+            h3.splash-title= splash.title
+            p.splash-copy-point= splash.desc

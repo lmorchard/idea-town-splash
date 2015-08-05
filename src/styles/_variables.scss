@@ -1,13 +1,16 @@
 $white: #fff;
 $black: #000;
+$grey: #444;
+$background: #f2f2f2;
 
 $dark: #329dcc;
-$medium: #6ccdea;
-$darker: darken($medium, 5%);
-$darkest: darken($dark, 5%);
-$light: #70cde8;
-$background: #f2f2f2;
+$medium: #0c99d5;
+$light: #e2eaed;
 $cta: #6cc042;
+$error: #e45656;
+
+$translucent-one: rgba(255, 255, 255, .05);
+$translucent-two: rgba(255, 255, 255, .1);
 
 $small-radius: 3px;
 

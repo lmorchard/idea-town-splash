@@ -1,7 +1,6 @@
-.sass-cache
-components
 node_modules
 public
+src/vendor
 .elasticbeanstalk/
 .npm-debug.log
 .ebextensions/environment.config

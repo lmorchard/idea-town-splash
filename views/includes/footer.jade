@@ -1,5 +1,5 @@
-.full.fancy-dark
+.full.dark
   #footer.wrapper
     a.moz-logo(href="https://www.mozilla.org/")
-    a.privacy(href="https://www.mozilla.org/privacy/") privacy
-    a.contribute(href="https://github.com/mozilla/idea-town") contribute
+    for plate in boilerplate
+      a(href="#{plate.url}" target="_blank").boilerplate #{plate.name}

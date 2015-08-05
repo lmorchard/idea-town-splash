@@ -15,6 +15,8 @@ var gulp = require('gulp'),
   uglify = require('gulp-uglify'),
   vfs = require('vinyl-fs');
 
+var del = require('del');
+
 var runSequence = require('run-sequence');
 
 // Lint the gulpfile
@@ -82,13 +84,15 @@ gulp.task('npm:tabzilla:img', function() {
 });
 
 gulp.task('npm:tabzilla:css', function() {
-  return gulp.src('node_modules/mozilla-tabzilla/css/**')
-    .pipe(gulp.dest('public/vendor/mozilla-tabzilla/css'));
+  return gulp.src('./node_modules/mozilla-tabzilla/css/tabzilla.css')
+    .pipe(rename('mozilla-tabzilla/css/tabzilla.scss'))
+    .pipe(gulp.dest('src/vendor'));
 });
 
 gulp.task('npm:normalize', function() {
-  return gulp.src('node_modules/normalize.css/normalize.css')
-    .pipe(gulp.dest('public/vendor/normalize.css'));
+  return gulp.src('./node_modules/normalize.css/normalize.css')
+    .pipe(rename('normalize.css/normalize.scss'))
+    .pipe(gulp.dest('src/vendor'));
 });
 
 gulp.task('static-splash', function() {
@@ -100,20 +104,30 @@ gulp.task('static-splash', function() {
     .pipe(gulp.dest('public'));
 });
 
-gulp.task('init', function() {
+gulp.task('clean', function (done) {
+  del([
+    'public',
+    'src/vendor'
+  ], done);
+});
+
+gulp.task('vendor', function (done) {
+  return runSequence([
+    'npm:tabzilla:img',
+    'npm:tabzilla:css',
+    'npm:normalize'
+  ], done);
+});
+
+gulp.task('build', function (done) {
   runSequence(
+    'clean',
+    'vendor',
     'scripts',
     'styles',
     'images',
     'prep-config',
-    'npm:normalize',
-    'npm:tabzilla:img',
-    'npm:tabzilla:css',
-    function(error) {
-      if (error) {
-        console.log('shit\'s broke son: ' + error.message);
-      }
-    }
+    done
   );
 });
 

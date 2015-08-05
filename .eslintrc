@@ -15,5 +15,6 @@ rules:
   no-unused-expressions: 2
   no-use-before-define: [2, nofunc]
   quotes: [2, single]
+  semi: [2, "always"]
   strict: [2, never]
   wrap-iife: [2, any]
