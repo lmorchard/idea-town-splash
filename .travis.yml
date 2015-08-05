@@ -5,6 +5,13 @@ sudo: false
 node_js:
   - "0.10"
   - "0.12"
+  - "iojs"
+
+matrix:
+  allow_failures:
+    - node_js: "0.12"
+    - node_js: "iojs"
+  fast_finish: true
 
 before_install:
   - npm i npm@2 -g
