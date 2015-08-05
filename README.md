@@ -31,7 +31,7 @@ gulp //sets watches
 npm start // better yet: nodemon server.js
 ```
 
-Don't forget to set your AWS creds in `app_config.json`
+Don't forget to set your AWS creds in `.ebenvironment/environment.config`
 
 point your browser to localhost:3001
 

@@ -4,15 +4,16 @@ var gulp = require('gulp'),
   committers = require('gulp-git-committers'),
   concat = require('gulp-concat'),
   data = require('gulp-data'),
-  eslint = require('gulp-eslint'),
   imagemin = require('gulp-imagemin'),
   jade = require('gulp-jade'),
+  eslint = require('gulp-eslint'),
   livereload = require('gulp-livereload'),
   minifycss = require('gulp-minify-css'),
   notify = require('gulp-notify'),
   rename = require('gulp-rename'),
   sass = require('gulp-sass'),
-  uglify = require('gulp-uglify');
+  uglify = require('gulp-uglify'),
+  vfs = require('vinyl-fs');
 
 var runSequence = require('run-sequence');
 
@@ -21,6 +22,12 @@ gulp.task('selfie', function(){
   return gulp.src('gulpfile.js')
     .pipe(eslint())
     .pipe(eslint.format());
+});
+
+gulp.task('prep-config', function() {
+  return vfs.src(['./.ebextensions/environment.config-dist'])
+    .pipe(rename('environment.config'))
+    .pipe(vfs.dest('./.ebextensions/', {overwrite: false}));
 });
 
 // Lint the *.js files
@@ -98,6 +105,7 @@ gulp.task('init', function() {
     'scripts',
     'styles',
     'images',
+    'prep-config',
     'npm:normalize',
     'npm:tabzilla:img',
     'npm:tabzilla:css',
