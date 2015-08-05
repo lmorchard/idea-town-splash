@@ -39,8 +39,6 @@ AWS.config.update(config);
 
 //Create DynamoDB client and pass in region.
 var db = new AWS.DynamoDB({region: config.AWS_REGION});
-//Create SNS client and pass in region.
-var sns = new AWS.SNS({ region: config.AWS_REGION});
 
 //GET home page.
 app.get('/', routes.index);
@@ -65,15 +63,6 @@ function signup(emailSubmitted) {
       console.log('Error adding item to database: ', err);
     } else {
       console.log('Form data added to database.');
-      var snsMessage = 'New signup: %EMAIL%'; //Send SNS notification containing email from form.
-      snsMessage = snsMessage.replace('%EMAIL%', formData.Item.email['S']);
-      sns.publish({ TopicArn: config.NEW_SIGNUP_TOPIC, Message: snsMessage }, function(err) {
-        if (err) {
-          console.log('Error publishing SNS message: ' + err);
-        } else {
-          console.log('SNS message sent.');
-        }
-      });
     }
   });
 }
