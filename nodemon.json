@@ -5,7 +5,8 @@
   },
   "verbose": "true",
   "watch": [
-    "app/**/*",
+    "routes/**/*",
+    "views/**/*",
     "server.js"
   ],
   "env": {
