@@ -1,17 +1,18 @@
 var gulp = require('gulp'),
-    cache = require('gulp-cache'),
-    concat = require('gulp-concat'),
-    data = require('gulp-data'),
-    imagemin = require('gulp-imagemin'),
-    jade = require('gulp-jade'),
-    jshint = require('gulp-jshint'),
-    uglify = require('gulp-uglify'),
-    autoprefixer = require('gulp-autoprefixer'),
-    livereload = require('gulp-livereload'),
-    minifycss = require('gulp-minify-css'),
-    notify = require('gulp-notify'),
-    rename = require('gulp-rename'),
-    sass = require('gulp-sass');
+  autoprefixer = require('gulp-autoprefixer'),
+  cache = require('gulp-cache'),
+  committers = require('gulp-git-committers'),
+  concat = require('gulp-concat'),
+  data = require('gulp-data'),
+  imagemin = require('gulp-imagemin'),
+  jade = require('gulp-jade'),
+  jshint = require('gulp-jshint'),
+  livereload = require('gulp-livereload'),
+  minifycss = require('gulp-minify-css'),
+  notify = require('gulp-notify'),
+  rename = require('gulp-rename'),
+  sass = require('gulp-sass'),
+  uglify = require('gulp-uglify');
 
 var runSequence = require('run-sequence');
 
@@ -28,6 +29,11 @@ gulp.task('lint', function() {
     .pipe(jshint('.jshintrc'))
     .pipe(jshint.reporter('default'))
     .pipe(jshint.reporter('fail'));
+});
+
+gulp.task('authors', function () {
+  return committers({email: true})
+    .pipe(gulp.dest('./AUTHORS'));
 });
 
 // Scripts
