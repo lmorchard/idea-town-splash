@@ -4,9 +4,9 @@ var gulp = require('gulp'),
   committers = require('gulp-git-committers'),
   concat = require('gulp-concat'),
   data = require('gulp-data'),
+  eslint = require('gulp-eslint'),
   imagemin = require('gulp-imagemin'),
   jade = require('gulp-jade'),
-  jshint = require('gulp-jshint'),
   livereload = require('gulp-livereload'),
   minifycss = require('gulp-minify-css'),
   notify = require('gulp-notify'),
@@ -19,16 +19,16 @@ var runSequence = require('run-sequence');
 // Lint the gulpfile
 gulp.task('selfie', function(){
   return gulp.src('gulpfile.js')
-    .pipe(jshint('.jshintrc'))
-    .pipe(jshint.reporter('default'));
+    .pipe(eslint())
+    .pipe(eslint.format());
 });
 
 // Lint the *.js files
 gulp.task('lint', function() {
   return gulp.src(['*.js', 'routes/*.js', 'src/scripts/**/*.js'])
-    .pipe(jshint('.jshintrc'))
-    .pipe(jshint.reporter('default'))
-    .pipe(jshint.reporter('fail'));
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failOnError());
 });
 
 gulp.task('authors', function () {
@@ -39,8 +39,8 @@ gulp.task('authors', function () {
 // Scripts
 gulp.task('scripts', function() {
   return gulp.src('src/scripts/**/*.js')
-    .pipe(jshint('.jshintrc'))
-    .pipe(jshint.reporter('default'))
+    .pipe(eslint())
+    .pipe(eslint.format())
     .pipe(concat('main.js'))
     .pipe(gulp.dest('public/scripts'))
     .pipe(rename({ suffix: '.min' }))
@@ -81,7 +81,7 @@ gulp.task('npm:tabzilla:css', function() {
 
 gulp.task('npm:normalize', function() {
   return gulp.src('node_modules/normalize.css/normalize.css')
-         .pipe(gulp.dest('public/vendor/normalize.css'));
+    .pipe(gulp.dest('public/vendor/normalize.css'));
 });
 
 gulp.task('static-splash', function() {
@@ -105,7 +105,8 @@ gulp.task('init', function() {
       if (error) {
         console.log('shit\'s broke son: ' + error.message);
       }
-  });
+    }
+  );
 });
 
 // Watches the things
@@ -113,8 +114,8 @@ gulp.task('default', function() {
   gulp.watch('src/styles/**/*', ['styles']);
   gulp.watch('src/images/**/*', ['images']);
   gulp.watch('src/scripts/**/*', ['scripts']);
-  gulp.watch('gulpfile.js',['selfie']);
-  gulp.watch(['public/**','views/**']).on('change', livereload.changed);
+  gulp.watch('gulpfile.js', ['selfie']);
+  gulp.watch(['public/**', 'views/**']).on('change', livereload.changed);
 
   livereload({ start: true });
   livereload.listen();
