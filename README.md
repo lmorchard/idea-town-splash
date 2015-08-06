@@ -26,7 +26,7 @@ Basically a clone of [eb-node-express-signup](https://github.com/awslabs/eb-node
 
 ```
 npm install
-gulp init
+gulp build
 gulp //sets watches
 npm start // better yet: nodemon server.js
 ```
