@@ -2,7 +2,6 @@ var gulp = require('gulp'),
   autoprefixer = require('gulp-autoprefixer'),
   cache = require('gulp-cache'),
   committers = require('gulp-git-committers'),
-  concat = require('gulp-concat'),
   data = require('gulp-data'),
   imagemin = require('gulp-imagemin'),
   jade = require('gulp-jade'),
@@ -12,12 +11,17 @@ var gulp = require('gulp'),
   notify = require('gulp-notify'),
   rename = require('gulp-rename'),
   sass = require('gulp-sass'),
+  gutil = require('gulp-util'),
   uglify = require('gulp-uglify'),
-  vfs = require('vinyl-fs');
+  sourcemaps = require('gulp-sourcemaps'),
+  vfs = require('vinyl-fs'),
+  browserify = require('browserify'),
+  source = require('vinyl-source-stream'),
+  buffer = require('vinyl-buffer'),
+  del = require('del'),
+  runSequence = require('run-sequence'),
+  debug = process.env.NODE_ENV === 'development';
 
-var del = require('del');
-
-var runSequence = require('run-sequence');
 
 // Lint the gulpfile
 gulp.task('selfie', function(){
@@ -46,15 +50,19 @@ gulp.task('authors', function () {
 });
 
 // Scripts
-gulp.task('scripts', function() {
-  return gulp.src('src/scripts/**/*.js')
-    .pipe(eslint())
-    .pipe(eslint.format())
-    .pipe(concat('main.js'))
-    .pipe(gulp.dest('public/scripts'))
-    .pipe(rename({ suffix: '.min' }))
+gulp.task('scripts', function () {
+  var b = browserify('./src/scripts/main.js', {
+    debug: debug
+  });
+
+  return b.bundle()
+    .pipe(source('main.js'))
+    .pipe(buffer())
+    .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(uglify())
-    .pipe(gulp.dest('public/scripts'))
+    .on('error', gutil.log)
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest('./public/scripts'))
     .pipe(notify({ message: 'Scripts task complete' }));
 });
 
