@@ -1,0 +1,20 @@
+.success,
+.error {
+  border-radius: $small-radius;
+  color: $white;
+  font-weight: 400;
+  margin-bottom: 12px;
+  padding: 5px;
+}
+
+.success {
+  background: $cta;
+}
+
+.error {
+  background: $error;
+}
+
+.hidden {
+  display: none;
+}

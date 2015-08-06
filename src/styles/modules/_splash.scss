@@ -1,124 +1,78 @@
-.splash-logo {
-  @include hidpi-background-image("splash-logo", 120px 120px);
-  height: 120px;
-  margin: 0 auto 30px;
-  width: 120px; 
-}
+#logo-header {
+  z-index: 2;
 
-#splash-header {
-  color: #fff;
-  max-width: 600px;
-  text-align: center;
+  .splash-logo {
+    @include hidpi-background-image("splash-logo", 600px 422px);
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    position: relative;
 
-  h1 {
-    font-weight: 600;
-    margin: 0 0 24px;
-    text-shadow: 0 1px 0 $dark;
-
-    @include respond-to('small') {
-      font-size: 9vw;
+    @include respond-to('med-large') {
+      height: 422px;
+      top: 20px;
+      width: 600px; 
     }
 
     @include respond-to('med-small') {
-      font-size: 42px;
+      background-size: 300px 211px;
+      height: 211px;
+      top: 25px;
+      width: 300px;
+    }
+  }
+}
+
+#logo-header,
+.logo-stripe {
+  position: relative;
+
+  @include respond-to('med-large') {
+    height: 430px;
+  }
+
+  @include respond-to('med-small') {
+    height: 230px;
+  }
+}
+
+#splash-cta-container {
+  position: relative;
+  z-index: 1;
+}
+
+#splash-cta {
+  text-align: center;
+
+  h1 {
+    margin: 0 0 24px;
+
+    @include respond-to('med-small') {
+      font-size: 7vw;
+    }
+
+    @include respond-to('med-large') {
+      font-size: 70px;
     }
   }
 
   h2 {
-    font-weight: 300;
     line-height: 32px;
-    margin: 0 0 32px;
-    text-shadow: 0 1px 0 $dark;
+    margin: 0 auto 32px;
 
     @include respond-to('small') {
       font-size: 18px;
     }
 
     @include respond-to('med-small') {
-      font-size: 18px;
+      font-size: 20px;
+      max-width: 650px;
     }
 
     @include respond-to('med-large') {
-      font-size: 20px;
-    }
-  }
-
-  input {
-    border: 0;
-    font-size: 18px;
-    height: 40px;
-    padding: 6px 10px 4px;
-    transition: background 100ms;
-
-    &[type='email'] {
-      background: $background;
-      border-radius: 0;
-      color: $dark;
-
-      @include respond-to('small') {
-        text-align: center;
-        width: 100%;
-      }
-
-      @include respond-to('med-small') {
-        width: 338px;
-      }
-
-      &:focus {
-        background: $white;
-      }
-
-    }
-
-    &[type='submit'] {
-      background: $cta;
-      border-radius: 0;
-      color: $white;
-      text-align: center;
-
-      @include respond-to('small') {
-        width: 100%;
-      }
-
-      @include respond-to('med-small') {
-        width: 100px;
-      }
-
-      &:hover,
-      &:focus {
-        background: darken($cta, 1%);
-      }
-
-      &:active {
-        background: darken($cta, 5%);
-      }
-    }
-  }
-
-  .parens {
-    font-weight: 300;
-    margin: 32px 0;
-  }
-
-  .splash-logo {
-    @include hidpi-background-image("splash-logo", 120px 120px);
-    height: 120px;
-    margin: 0 auto 30px;
-    width: 120px; 
-  }
-
-  .splash-email-submit {
-    border-radius: 3px;
-    box-shadow: 0 1px 0 $dark;
-    margin: 0 auto 12px;
-    overflow: hidden;
-
-    @include respond-to('small') {
-      width: 100%;
-    }
-
-    @include respond-to('med-small') {
-      width: 440px;
+      font-size: 24px;
+      line-height: 36px;
+      max-width: 650px;
     }
   }
 }
@@ -134,15 +88,27 @@
   }
 
   .splash-title {
-    color: $dark;
-    font-size: 20px;
+    font-size: 24px;
+    font-weight: 400;
     text-align: center;
   }
 
   .splash-copy-point {
-    color: $dark;
+    font-size: 18px;
     margin: 0 auto;
     max-width: 320px;
     text-align: center;
+  }
+}
+
+.disclaimer {
+  color: $grey;
+  font-size: 12px;
+  font-weight: 400;
+  margin: 24px 0 2px;
+
+  a {
+    color: $grey;
+    font-weight: 400;
   }
 }

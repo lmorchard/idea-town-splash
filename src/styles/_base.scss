@@ -2,11 +2,17 @@
 *:before,
 *:after {
   box-sizing: border-box;
+  font-weight: 300;
 }
 
 a {
   cursor: pointer;
   text-decoration: underline;
+
+  &:focus {
+    background: $cta;
+    outline: none;
+  }
 }
 
 .flex {
@@ -26,7 +32,7 @@ h6 {
 body {
   background: $background;
   background-attachment: fixed;
-  color: $dark;
-  font-family: 'Fira Sans';
+  color: $black;
+  font-family: 'Open Sans', sans-serif;
   font-size: 14px;
 }

@@ -1,0 +1,69 @@
+form {
+  border-radius: 3px;
+  margin: 0 auto 12px;
+  overflow: hidden;
+
+  @include respond-to('med-small') {
+    max-width: 440px;
+    width: 100%;
+  }
+
+  @include respond-to('med-large') {
+    width: 440px;
+  }
+}
+
+input {
+  border: 0;
+  font-size: 18px;
+  font-weight: 400;
+  height: 40px;
+  padding: 5px 10px;
+  transition: background 100ms;
+
+  &[type='email'] {
+    background: $background;
+    color: $black;
+
+    @include respond-to('med-small') {
+      border-radius: $small-radius;
+      text-align: center;
+      width: 100%;
+    }
+
+    @include respond-to('med-large') {
+      width: 338px;
+    }
+
+    &:focus {
+      background: $white;
+      outline: none;
+    }
+  }
+
+  &[type='submit'] {
+    background: $cta;
+    color: $white;
+    text-align: center;
+
+    @include respond-to('med-small') {
+      border-radius: $small-radius;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    @include respond-to('med-large') {
+      width: 100px;
+    }
+
+    &:hover,
+    &:focus {
+      background: darken($cta, 10%);
+      outline: none;
+    }
+
+    &:active {
+      background: darken($cta, 15%);
+    }
+  }
+}

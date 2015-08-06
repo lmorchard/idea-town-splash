@@ -3,22 +3,50 @@
   "desc": "A place to explore and shape the future of Firefox",
   "keys": "Idea Town, Firefox, User Experience, Open Source, Mozilla, Chronicle, Experiments",
   "mainHeader": "Welcome to Idea Town",
-  "subHeader":"We’re building the next generation of features for Firefox, and we want your help. Sign up to be among the first to try out the future of the Fox!",
+  "subHeader": "We’re building the next generation of features for Firefox, and we want your help. Sign up to be among the first to try out the future of the Fox!",
+  "form": {
+    "inputPlaceholder": "what's your email?",
+    "submitValue": "Sign up"
+  },
+  "disclaimer": "We handle your email as described in our <a href='https://www.mozilla.org/privacy/websites' target='_blank'>Privacy Notice</a>",
+  "mailResponses": {
+    "success": "Thank you! Keep an eye on your inbox. We'll invite you to try out Idea Town as soon as it's ready.",
+    "invalid": "Invalid email address. Try again.",
+    "serverError": "Oh dear, something went wrong there. Try again soon."
+  },
   "splashes": [
     {
-      "title":"Try new features",
-      "image":"",
+      "title": "Try new features",
+      "image": "",
       "desc": "We've got ideas to share. Idea town lets you play around with new features as we build them."
     },
     {
-      "title":"Give us feedback",
-      "image":"",
+      "title": "Give us feedback",
+      "image": "",
       "desc": "Firefox is for the people. Tell us what you like and what you don't. We can't do this without you."
     },
     {
-      "title":"Build the future",
-      "image":"",
+      "title": "Build the future",
+      "image": "",
       "desc": "Your contributions to Idea Town will directly affect the future of Firefox. Pretty cool, huh?"
+    }
+  ], 
+  "boilerplate": [ 
+    {
+      "name": "legal",
+      "url": "https://www.mozilla.org/about/legal/"
+    },
+    {
+      "name": "privacy",
+      "url": "https://www.mozilla.org/privacy/"
+    },
+    {
+      "name": "cookies",
+      "url": "https://www.mozilla.org/privacy/websites/#cookies"
+    },
+    {
+      "name": "contribute",
+      "url": "https://github.com/mozilla/idea-town"
     }
   ]
 }

@@ -7,16 +7,16 @@
     display: block;
     float: left;
     height: 20px;
+    margin-right: 20px;
     width: 77px;
   }
 
-  .privacy,
-  .contribute {
+  .boilerplate {
     color: $white;
-    float: right;
-    padding: 0 5px;
+    float: left;
+    font-weight: 400;
+    padding: 0 20px;
     position: relative;
-    text-decoration: none;
     top: 4px;
   }
 }
