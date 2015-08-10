@@ -140,7 +140,7 @@ gulp.task('build', function (done) {
 });
 
 // Watches the things
-gulp.task('default', function() {
+gulp.task('default', ['build'], function() {
   gulp.watch('src/styles/**/*', ['styles']);
   gulp.watch('src/images/**/*', ['images']);
   gulp.watch('src/scripts/**/*', ['scripts']);
