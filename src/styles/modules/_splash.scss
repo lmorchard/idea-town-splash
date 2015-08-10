@@ -37,6 +37,7 @@
 }
 
 #splash-cta-container {
+  overflow: hidden;
   position: relative;
   z-index: 1;
 }
@@ -45,20 +46,20 @@
   text-align: center;
 
   h1 {
-    margin: 0 0 24px;
+    margin: 0;
 
     @include respond-to('med-small') {
       font-size: 7vw;
     }
 
     @include respond-to('med-large') {
-      font-size: 70px;
+      font-size: 64px;
     }
   }
 
   h2 {
-    line-height: 32px;
-    margin: 0 auto 32px;
+    line-height: 30px;
+    margin: 0 auto 12px;
 
     @include respond-to('small') {
       font-size: 18px;
@@ -71,7 +72,7 @@
 
     @include respond-to('med-large') {
       font-size: 24px;
-      line-height: 36px;
+      line-height: 32px;
       max-width: 650px;
     }
   }

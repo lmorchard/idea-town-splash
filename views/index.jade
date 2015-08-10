@@ -11,12 +11,14 @@ block content
       header
         h1.splash-title= mainHeader
         h2.splash-desc= subHeader
-      form(id="signupForm", role="form", class="splash-email-submit" novalidate="")
-        .success.email-submitted.hidden= mailResponses.success
+      .success-wrapper
+        .success.email-submitted= mailResponses.success
+      .error-wrapper
         .error.invalid-email.hidden= mailResponses.invalid
         .error.server-error.hidden= mailResponses.serverError
-        input(type="email" id="email", name="email", placeholder="#{form.inputPlaceholder}" tabindex="1")
-        input(type="submit" id="signup" value="#{form.submitValue}")
+      form(id="signup-form", role="form", class="splash-email-submit" novalidate="" )
+        input(type="email" id="email", name="email", placeholder="#{form.inputPlaceholder}" autofocus autocomplete="off")
+        input(type="submit" id="signup" class="disabled" value="#{form.submitValue}")
         .disclaimer!= disclaimer
 
   .full

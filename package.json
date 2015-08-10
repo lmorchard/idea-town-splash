@@ -21,6 +21,7 @@
     "busboy": "^0.2.9",
     "express": "^4.13.3",
     "helmet": "^0.10.0",
+    "isemail": "^1.1.1",
     "jade": "^1.11.0",
     "morgan": "^1.6.1",
     "mozilla-tabzilla": "0.4.0",
@@ -30,11 +31,11 @@
     "xtend": "^4.0.0"
   },
   "devDependencies": {
+    "browserify": "^11.0.1",
     "del": "^1.2.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.3.1",
     "gulp-cache": "^0.2.10",
-    "gulp-concat": "^2.6.0",
     "gulp-data": "^1.2.0",
     "gulp-eslint": "^1.0.0",
     "gulp-git-committers": "^0.0.1",
@@ -46,9 +47,13 @@
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.3",
     "gulp-sass": "^2.0.4",
+    "gulp-sourcemaps": "^1.5.2",
     "gulp-uglify": "^1.2.0",
+    "gulp-util": "^3.0.6",
     "run-sequence": "^1.1.1",
-    "vinyl-fs": "^1.0.0"
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-fs": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
   },
   "homepage": "https://github.com/mozilla/idea-town#readme",
   "license": "MPL-2.0",
