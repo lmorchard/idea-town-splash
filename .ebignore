@@ -1,0 +1,12 @@
+# this will override .gitignore for `eb deploy`
+
+# keep private info private
+.elasticbeanstalk/**/*
+.ebextensions/**/*
+
+# don't deploy unncessary files
+.git/**/*
+src/**/*
+node_modules/**/*
+npm-debug.log
+.npm-debug.log
