@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/mozilla/idea-town.svg?branch=master)](https://travis-ci.org/mozilla/idea-town)
 
-![Idea Town](https://raw.githubusercontent.com/mozilla/idea-town/master/src/images/splash-logo%402x.png)
+![Idea Town](https://raw.githubusercontent.com/mozilla/idea-town/master/src/images/town%402x.png)
 
 ## What is Idea Town?
 

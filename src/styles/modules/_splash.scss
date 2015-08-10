@@ -2,23 +2,23 @@
   z-index: 2;
 
   .splash-logo {
-    @include hidpi-background-image("splash-logo", 600px 422px);
-    background-position: center center;
+    @include hidpi-background-image("town", 855px 374px);
+    background-position: center bottom;
+    top: 37px;
     background-repeat: no-repeat;
     margin: 0 auto;
     position: relative;
 
     @include respond-to('med-large') {
-      height: 422px;
-      top: 20px;
-      width: 600px; 
+      height: 374px;
+      max-width: 855px; 
     }
 
     @include respond-to('med-small') {
-      background-size: 300px 211px;
+      background-size: auto 187px;
       height: 211px;
-      top: 25px;
-      width: 300px;
+      top: -6px;
+      max-width: 100%; 
     }
   }
 }
@@ -28,11 +28,11 @@
   position: relative;
 
   @include respond-to('med-large') {
-    height: 430px;
+    height: 400px;
   }
 
   @include respond-to('med-small') {
-    height: 230px;
+    height: 200px;
   }
 }
 
