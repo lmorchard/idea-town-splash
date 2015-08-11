@@ -2,7 +2,7 @@
   z-index: 2;
 
   .splash-logo {
-    @include hidpi-background-image("town", 855px 374px);
+    @include hidpi-background-image('town', 855px 374px);
     background-position: center bottom;
     background-repeat: no-repeat;
     margin: 0 auto;
@@ -82,10 +82,24 @@
 
   .splash-image {
     background: $dark;
+    background-position: center center;
     border-radius: 50%;
     height: 150px;
     margin: 14px auto 24px;
     width: 150px;
+
+    &.try {
+      @include hidpi-background-image('try', 150px 150px);
+    }
+
+    &.feedback {
+      @include hidpi-background-image('feedback', 150px 150px);
+    }
+
+    &.build {
+      @include hidpi-background-image('build', 150px 150px);
+    }
+
   }
 
   .splash-title {

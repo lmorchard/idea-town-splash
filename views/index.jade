@@ -26,6 +26,6 @@ block content
       .row
         each splash in splashes
           .third
-            .splash-image
+            .splash-image(class="#{splash.image}")
             h3.splash-title= splash.title
             p.splash-copy-point= splash.desc
