@@ -18,7 +18,7 @@ block content
         .error.server-error.hidden= mailResponses.serverError
       form(id="signup-form", role="form", class="splash-email-submit" novalidate="" )
         input(type="email" id="email", name="email", placeholder="#{form.inputPlaceholder}" autofocus autocomplete="off")
-        input(type="submit" id="signup" class="disabled" value="#{form.submitValue}")
+        input(type="submit" id="signup" class="disabled" value="#{form.submitValue}" autocomplete="off")
         .disclaimer!= disclaimer
 
   .full
