@@ -13,8 +13,9 @@ var gulp = require('gulp'),
   sass = require('gulp-sass'),
   gutil = require('gulp-util'),
   uglify = require('gulp-uglify'),
+  filter = require('gulp-filter'),
   sourcemaps = require('gulp-sourcemaps'),
-  vfs = require('vinyl-fs'),
+  zip = require('gulp-zip'),
   browserify = require('browserify'),
   source = require('vinyl-source-stream'),
   buffer = require('vinyl-buffer'),
@@ -30,10 +31,23 @@ gulp.task('selfie', function(){
     .pipe(eslint.format());
 });
 
+gulp.task('bundle', function() {
+  var mainFilter = filter(['**/*', '.**/*',
+                           '!.git', '!.git/**',
+                           '!src', '!src/**',
+                           '!dist', '!dist/**',
+                           '!node_modules', '!node_modules/**']);
+
+  return gulp.src(['**/*', '.**/*'])
+         .pipe(mainFilter)
+         .pipe(zip('app-'+ new Date().toString() + '.zip'))
+         .pipe(gulp.dest('dist/'));
+});
+
 gulp.task('prep-config', function() {
-  return vfs.src(['./.ebextensions/environment.config-dist'])
+  return gulp.src('./.ebextensions/environment.config-dist')
     .pipe(rename('environment.config'))
-    .pipe(vfs.dest('./.ebextensions/', {overwrite: false}));
+    .pipe(gulp.dest('./.ebextensions/', {overwrite: false}));
 });
 
 // Lint the *.js files
