@@ -6,6 +6,13 @@
   &:before {
     background: $medium;
   }
+
+  a {
+    &:focus {
+      background-color: transparent;
+      outline: 2px dotted $white;
+    }
+  }
 }
 
 .dark {
