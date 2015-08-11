@@ -4,10 +4,10 @@
   .splash-logo {
     @include hidpi-background-image("town", 855px 374px);
     background-position: center bottom;
-    top: 37px;
     background-repeat: no-repeat;
     margin: 0 auto;
     position: relative;
+    top: 37px;
 
     @include respond-to('med-large') {
       height: 374px;
@@ -17,8 +17,8 @@
     @include respond-to('med-small') {
       background-size: auto 187px;
       height: 211px;
-      top: -6px;
       max-width: 100%; 
+      top: -6px;
     }
   }
 }
