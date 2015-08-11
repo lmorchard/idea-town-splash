@@ -5,7 +5,7 @@
   "description": "Ideas come to town",
   "main": "server.js",
   "scripts": {
-    "build": "./node_modules/.bin/gulp build",
+    "build": "gulp build",
     "lint": "gulp lint",
     "start": "node server.js",
     "bundle": "zip -r ../bundle.zip ./* ./.*",
