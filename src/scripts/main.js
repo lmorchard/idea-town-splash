@@ -10,6 +10,8 @@ var emailEl = document.querySelector('#signup-form input#email');
 var SLOW = 1000;
 var FAST = 150;
 
+submitBtnEl.disabled = false;
+
 emailEl.addEventListener('keyup', function(ev) {
 
   var emailVal = emailEl.value;

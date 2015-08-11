@@ -3,7 +3,7 @@
   padding-top: 100px;
 
   .moz-logo {
-    @include hidpi-background-image("mozilla", 77px 20px);
+    @include hidpi-background-image('mozilla', 77px 20px);
     display: block;
     float: left;
     height: 20px;
