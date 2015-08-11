@@ -43,12 +43,12 @@ elastic beanstalk dashboard.
 
 ### Using `eb` CLI
 
-- make sure `eb` is configured correctly for environments
+- make sure `eb` is configured correctly for environments via `eb init`
   - `master` = dev
   - `stage`  = stage
   - `prod`   = production
 - change to the appropriate branch (master, stage, production)
-- `./node_modules/.bin/gulp build` - to build assets into `public/` directory
+- `npm run build` - to build assets into `public/` directory
 - `eb deploy` to deploy a new version
 
 ## Who is responsible for this?
