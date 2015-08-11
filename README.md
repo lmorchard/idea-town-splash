@@ -26,8 +26,7 @@ Basically a clone of [eb-node-express-signup](https://github.com/awslabs/eb-node
 
 ```
 npm install
-gulp // builds and starts watching files for rebuild
-npm start // better yet: nodemon server.js
+gulp // watches files for rebuild, starts an app server in dev mode
 ```
 
 Don't forget to set your AWS creds in `.ebenvironment/environment.config`
