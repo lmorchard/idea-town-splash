@@ -35,8 +35,21 @@ Don't forget to set your AWS creds in `.ebenvironment/environment.config`
 point your browser to localhost:3001
 
 ## Deploy
+
+### Manual deploy
+
 You will need to run `npm run bundle` to create the zip and upload it through the
 elastic beanstalk dashboard.
+
+### Using `eb` CLI
+
+- make sure `eb` is configured correctly for environments
+  - `master` = dev
+  - `stage`  = stage
+  - `prod`   = production
+- change to the appropriate branch (master, stage, production)
+- `./node_modules/.bin/gulp build` - to build assets into `public/` directory
+- `eb deploy` to deploy a new version
 
 ## Who is responsible for this?
 
