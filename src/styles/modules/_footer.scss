@@ -9,14 +9,32 @@
     height: 20px;
     margin-right: 20px;
     width: 77px;
+    
+    @include respond-to('med-large') {
+      float: left;
+      margin-right: 20px;
+    }
+
+    @include respond-to('med-small') { 
+      margin-bottom: 20px;
+    }
   }
 
   .boilerplate {
     color: $white;
-    float: left;
+    display: block;
     font-weight: 400;
-    padding: 0 20px;
     position: relative;
-    top: 4px;
+    
+    @include respond-to('med-large') {
+      float: left;
+      padding: 0 20px;
+      top: 4px;
+    }
+
+    @include respond-to('med-small') { 
+      clear: both;
+      padding: 10px 0;
+    }
   }
 }
