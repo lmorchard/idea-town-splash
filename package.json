@@ -38,7 +38,6 @@
     "gulp-cache": "^0.2.10",
     "gulp-data": "^1.2.0",
     "gulp-eslint": "^1.0.0",
-    "gulp-git-committers": "^0.0.1",
     "gulp-imagemin": "^2.3.0",
     "gulp-jade": "^1.1.0",
     "gulp-livereload": "^3.8.0",

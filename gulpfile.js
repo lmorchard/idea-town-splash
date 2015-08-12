@@ -1,7 +1,6 @@
 var gulp = require('gulp'),
   autoprefixer = require('gulp-autoprefixer'),
   cache = require('gulp-cache'),
-  committers = require('gulp-git-committers'),
   data = require('gulp-data'),
   imagemin = require('gulp-imagemin'),
   jade = require('gulp-jade'),
@@ -42,11 +41,6 @@ gulp.task('lint', function() {
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failOnError());
-});
-
-gulp.task('authors', function () {
-  return committers({email: true})
-    .pipe(gulp.dest('./AUTHORS'));
 });
 
 // Scripts
