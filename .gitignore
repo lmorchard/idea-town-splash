@@ -5,3 +5,4 @@ src/vendor
 .elasticbeanstalk/
 .npm-debug.log
 .ebextensions/environment.config
+dist/*.zip

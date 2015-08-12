@@ -38,7 +38,7 @@ point your browser to localhost:3001
 
 ### Manual deploy
 
-You will need to run `npm run bundle` to create the zip and upload it through the
+You will need to run `gulp bundle` to create the zip in `dist/` and upload it through the
 elastic beanstalk dashboard.
 
 ### Using `eb` CLI

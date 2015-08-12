@@ -8,7 +8,6 @@
     "build": "gulp build",
     "lint": "gulp lint",
     "start": "node server.js",
-    "bundle": "zip -r ../bundle.zip ./* ./.*",
     "postinstall": "echo \"don't forget to set AWS Credentials in .ebextensions/environment.config\" ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,6 +19,7 @@
     "aws-sdk": "^2.1.43",
     "busboy": "^0.2.9",
     "express": "^4.13.3",
+    "gulp-filter": "^3.0.0",
     "helmet": "^0.10.0",
     "isemail": "^1.1.1",
     "jade": "^1.11.0",
@@ -50,9 +50,9 @@
     "gulp-sourcemaps": "^1.5.2",
     "gulp-uglify": "^1.2.0",
     "gulp-util": "^3.0.6",
+    "gulp-zip": "^3.0.2",
     "run-sequence": "^1.1.1",
     "vinyl-buffer": "^1.0.0",
-    "vinyl-fs": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   },
   "homepage": "https://github.com/mozilla/idea-town#readme",
