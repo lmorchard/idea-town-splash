@@ -21,6 +21,7 @@ var gulp = require('gulp'),
   buffer = require('vinyl-buffer'),
   del = require('del'),
   runSequence = require('run-sequence'),
+  nodemon = require('gulp-nodemon'),
   debug = process.env.NODE_ENV === 'development';
 
 
@@ -153,8 +154,16 @@ gulp.task('build', function (done) {
   );
 });
 
+gulp.task('server', ['build'], function () {
+  nodemon({
+    script: 'server.js',
+    ext: 'html js',
+    env: { 'NODE_ENV': 'development' }
+  });
+});
+
 // Watches the things
-gulp.task('default', ['build'], function() {
+gulp.task('default', ['build', 'server'], function() {
   gulp.watch('src/styles/**/*', ['styles']);
   gulp.watch('src/images/**/*', ['images']);
   gulp.watch('src/scripts/**/*', ['scripts']);
