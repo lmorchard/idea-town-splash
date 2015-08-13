@@ -7,20 +7,21 @@ module.exports = function(req, res) {
     var busboy = new Busboy({headers: req.headers});
     busboy.on('field', function(fieldname, val) {
       if (fieldname === 'email') {
-        signup(val);
+        signup(req, res, val);
+      } else {
+        res.sendStatus(400);
       }
-    });
-    busboy.on('finish', function() {
-      res.sendStatus(200);
+    }).on('error', function(err) {
+      sendErr(req, res, err);
     });
     req.pipe(busboy);
   }
   catch (err) {
-    res.sendStatus(500);
+    sendErr(req, res, err);
   }
 };
 
-function signup(emailSubmitted) {
+function signup(req, res, emailSubmitted) {
   var formData = {
     TableName: config.STARTUP_SIGNUP_TABLE,
     Item: {
@@ -29,9 +30,18 @@ function signup(emailSubmitted) {
   };
   db.putItem(formData, function(err) {
     if (err) {
-      console.log('Error adding item to database: ', err);
+      sendErr(req, res, err);
     } else {
-      console.log('Form data added to database.');
+      sendSuccess(req, res);
     }
   });
+}
+
+function sendErr(req, res, err) {
+  console.error(err);
+  res.sendStatus(500);
+}
+
+function sendSuccess(req, res) {
+  res.sendStatus(200);
 }
